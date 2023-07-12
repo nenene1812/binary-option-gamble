@@ -18,7 +18,7 @@ from coinpayments.models import Balances
 from django.utils import timezone
 from binance.client import Client
 from datetime import datetime, timedelta
-
+from django.conf import settings
 
 class Pagination(pagination.PageNumberPagination):       
        page_size = 5
@@ -47,8 +47,8 @@ class WfxTransactionAPI(generics.GenericAPIView):
             if float(data['amount']) <= float(balance.balance):
                 
                 try:
-                    api_key = 'xGNir5hSwP7RmjBCbqfF59ZG21acA32ggnsXLGc07HOggWhHtsTaylvqpjFIrSde'
-                    secret_key = 'p28WOxaSARp5xI3Tvq229m1si99F3gRfFzUROmkoxepFqzxu4XmGn7Eu8ZHnAAhH'
+                    api_key = settings.API_KEY_BINANCE
+                    secret_key = settings.SECRET_KEY_BINANCE
                     client = Client(api_key,secret_key)
                     lastPrice = client.get_ticker(symbol='BTCUSDT')['lastPrice']
                     new_transaction = WfxTransaction(
