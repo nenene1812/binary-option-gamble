@@ -20,3 +20,10 @@ This project is designed to show the procedures involved in creating a binary op
 - Wallet (Balance history and current balancde)
 - Inoivce (Save invoice when user deposit or withdrawal)
 
+
+## Tech Stack
+
+**Client:** html, CSS 
+
+**Server:** Django, Postgres, redis, celery 
+
