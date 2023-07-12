@@ -65,7 +65,7 @@ def get_klines():
     else: 
         # print("ba@")
         if delta >= 0: 
-            # nến đỏ - nến giảm - short 
+            # red candle - decrease - short 
             if open_candles > close:
                 new_open = open_candles
                 new_high = high
@@ -92,7 +92,7 @@ def get_klines():
             WfxTransaction.objects.filter(session = session.id, transaction_type = 2 ).update(status='win')
 
         else: 
-            # nến xanh - nến tăng - long 
+            # blue candle - increase - long 
             if open_candles < close:
                 new_open = open_candles
                 new_high = high
