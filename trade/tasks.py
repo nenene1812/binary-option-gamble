@@ -21,8 +21,8 @@ channel_layer = get_channel_layer()
 
 @shared_task
 def get_klines():
-    api_key = settings.API_KEY 
-    secret_key = settings.SECRET_KEY 
+    api_key = settings.API_KEY_BINANCE 
+    secret_key = settings.SECRET_KEY_BINANCE 
     client = Client(api_key,secret_key)
     klines = client.get_klines(symbol='BTCUSDT', interval='1m')
     tradeSession = TradeSession(
