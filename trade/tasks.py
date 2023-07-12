@@ -15,13 +15,14 @@ from django.db.models import Avg, Max, Min, Sum
 from celery import group
 from celery import Celery
 import core.celery
+from django.conf import settings
 
 channel_layer = get_channel_layer()
 
 @shared_task
 def get_klines():
-    api_key = 'xGNir5hSwP7RmjBCbqfF59ZG21acA32ggnsXLGc07HOggWhHtsTaylvqpjFIrSde'
-    secret_key = 'p28WOxaSARp5xI3Tvq229m1si99F3gRfFzUROmkoxepFqzxu4XmGn7Eu8ZHnAAhH'
+    api_key = settings.API_KEY 
+    secret_key = settings.SECRET_KEY 
     client = Client(api_key,secret_key)
     klines = client.get_klines(symbol='BTCUSDT', interval='1m')
     tradeSession = TradeSession(
