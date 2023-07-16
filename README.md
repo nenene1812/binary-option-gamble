@@ -1,5 +1,5 @@
 
-# Binary option gamble project
+# Binary option gambling back-end project
 
 There are many binary options projects on the market that are made to take advantage of and profit from gambling. Although the details may differ between platforms, the basic idea—manipulating the trades to profit—remains the same.
 
